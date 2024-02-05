@@ -1,0 +1,142 @@
+/* Default CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ul {
+    list-style: none;
+}
+
+.form-control {
+    width: auto;
+}
+
+.body-btn {
+    padding: 7px 15px;
+    border: 1px solid #999797;
+    border-radius: 5px;
+}
+
+.body-btn:focus {
+    border: 1px solid #302f2f;
+}
+
+/* Calculator Default Button Class */
+.bg-lightgray {
+    background-color: #B5B5B5;
+    color: black;
+}
+
+.bg-darkgray {
+    background-color: #414141;
+    color: #fff;
+}
+
+.bg-orange {
+    background-color: #FE9D12;
+    color: #fff;
+}
+
+/* Calculator */
+.calC .box {
+    height: 680px;
+    width: 400px;
+    background: black;
+    padding: 15px;
+    border-radius: 25px;
+}
+
+.calC .box .input-part .screen {
+    text-align: right;
+    border: none;
+    height: 100px;
+    background: transparent;
+    width: 100%;
+    color: #fff;
+    font-size: 70px;
+    margin-top: 80px;
+}
+
+.calC .screen:focus {
+    outline: none;
+}
+
+.calC .screen::placeholder {
+    color: #fff;
+}
+
+.calC .btn-part {
+    margin-top: 20px;
+}
+
+.calC .btn-row {
+    margin-left: 0;
+    margin-right: 0;
+    text-align: center;
+}
+
+.calC .btn-row .col,
+.col-6 {
+    padding: 7px;
+}
+
+.calC .btn-row input {
+    border-radius: 50%;
+    height: 75px;
+    width: 75px;
+    border: 0;
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.calC .btn-row .btn-h-rectangle {
+    height: 75px;
+    width: 100%;
+    border: 0;
+    font-size: 30px;
+    font-weight: 600;
+    border-radius: 50px;
+}
+
+
+/* Tic Tac Toe */
+.TicTacToe .main-box {
+    width: 450px;
+}
+
+.TicTacToe .box {
+    height: 450px;
+    width: 100%;
+}
+
+.TicTacToe .box input {
+    width: 150px;
+    height: 150px;
+    font-size: 40px;
+    background-color: transparent;
+    border-radius: 10px;
+    border: 6px solid black;
+}
+
+.bdr-t {
+    border-top: 0 !important;
+}
+
+.bdr-l {
+    border-left: 0 !important;
+}
+
+.bdr-r {
+    border-right: 0 !important;
+}
+
+.bdr-b {
+    border-bottom: 0 !important;
+}
+
+/* Stuent Result */
+.studentResult .subjectBox input{
+    width: 130px;
+}
