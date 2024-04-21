@@ -42,8 +42,6 @@ const MathCalculator = () => {
     else if (temp == '%') {
       setDisplay(parseInt(fv) % parseInt(sv));
     }
-
-
   }
 
   const allClean = () => {
@@ -65,7 +63,7 @@ const MathCalculator = () => {
       <div className="calC py-5 border-bottom">
 
         <div className="title">
-          <h2 className='mb-4'>Calculator</h2>
+          <h2 className='mb-4'>Math Calculator</h2>
         </div>
 
         <div className="box">

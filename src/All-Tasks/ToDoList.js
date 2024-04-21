@@ -3,21 +3,20 @@ import React, { useState } from 'react'
 const ToDoList = () => {
 
 
-    const [inputValue, setInputValue] = useState(''); //Input 
+    const [inputValue, setInputValue] = useState('');
 
-    const [items, setItems] = useState([]); // All Items 1
+    const [items, setItems] = useState([]);
 
-    const [items2, setItems2] = useState([]); // All Items 2
+    const [items2, setItems2] = useState([]);
 
-    const [bool, setBool] = useState(false); //Bolean Value
+    const [bool, setBool] = useState(false);
 
-    const [tempIndex, setTempIndex] = useState(); // Index
+    const [tempIndex, setTempIndex] = useState();
 
-    const [btn, setBtn] = useState('ADD'); // Button Value Change
+    const [btn, setBtn] = useState('ADD');
 
     // ADD
     const addItem = () => {
-
         if (inputValue == '') {
             alert('Please enter the item.');
         }
@@ -67,8 +66,6 @@ const ToDoList = () => {
         tArray[checkIndex].check = !tArray[checkIndex].check;
 
         setItems(tArray);
-
-        // ALL DATA STORE ONE STATE TO OTHER STATE
         setItems2(items);
     }
 
@@ -134,7 +131,7 @@ const ToDoList = () => {
                                             <li className='mb-4 d-flex align-items-center'>
 
                                                 <input type="checkbox" className='form-check-input' checked={item.check} onChange={() => checkBox(index)} />
-                                                <span className='mx-3' style={{ textDecoration: item.check ? 'line-through' : 'none' }}>{item.text}</span>
+                                                <span className='mx-3' style={{ textDecoration: (item.check == true) ? 'line-through' : 'none' }}>{item.text}</span>
 
                                                 <input type="button" value={'UPDATE'} className='body-btn bg-primary text-light' onClick={() => updateItem(index)} />
                                                 <input type="button" value={'DELETE'} className='body-btn ms-3 bg-warning text-light' onClick={() => deleteItem(index)} />
@@ -146,7 +143,6 @@ const ToDoList = () => {
                         </ul>
                     </div>
                 </div>
-
             </div>
         </>
     )

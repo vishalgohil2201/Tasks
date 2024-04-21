@@ -1,30 +1,33 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+
+
 
 const AgeCalculator = () => {
 
-  // Current Date
-  // let [today, setToday] = useState('');
+  let [today, setToday] = useState('');
+
+  useEffect(() => {
+    const currentDate = new Date().toISOString().substring(0, 10);
+    setToday(currentDate);
+  }, []);
 
   let [dob, setDob] = useState('');
 
   let [year, setYear] = useState(0);
   let [month, setMonth] = useState(0);
   let [day, setDay] = useState(0);
+  let [week, setWeek] = useState(0);
   let [hour, setHour] = useState(0);
   let [minute, setMinute] = useState(0);
   let [second, setSecond] = useState(0);
-  let [millisecond, setMillisecond] = useState(0);
 
   let [bool, setBool] = useState(false);
 
-  let cd = new Date();
+  let cd = new Date(today);
   let cms = cd.getTime();
-  // console.log(cms);
 
   let bd = new Date(dob);
   let bms = bd.getTime();
-  // console.log(bms);
-
 
   let ms = parseInt(cms) - parseInt(bms);
 
@@ -36,6 +39,8 @@ const AgeCalculator = () => {
 
   let d = Math.floor(h / 24);
 
+  let w = Math.floor(d / 7);
+
   let mon = Math.floor(d / 30.42);
 
   let y = Math.floor(mon / 12)
@@ -43,30 +48,31 @@ const AgeCalculator = () => {
 
   const detail = () => {
 
-    // MilliSeconds
-    setMillisecond(ms);
+    if (!dob) {
+      alert("Please enter your date of birth..!")
+    }
+    else {
+      setSecond(s.toLocaleString())
+      setMinute(min.toLocaleString())
+      setHour(h.toLocaleString())
+      setWeek(w.toLocaleString())
+      setDay(d.toLocaleString())
+      setMonth(mon.toLocaleString())
+      setYear(y)
+      setBool(true);
+    }
+  }
 
-    // Second
-    setSecond(s)
-
-    // Minutes
-    setMinute(min)
-
-    // Hours
-    setHour(h)
-
-    // Day
-    setDay(d)
-
-    // Month
-    setMonth(mon)
-
-    // year
-    setYear(y)
-
-    // Show Data
-    setBool(true);
-
+  const clearData = () => {
+    setDob('');
+    setYear(0);
+    setMonth(0);
+    setWeek(0)
+    setDay(0);
+    setHour(0);
+    setMinute(0);
+    setSecond(0);
+    setBool(false);
   }
 
 
@@ -75,19 +81,22 @@ const AgeCalculator = () => {
       <div className="age-calculation py-5 border-bottom">
 
         <div className="title">
-          <h2 className='mb-4'>Age Calculation</h2>
+          <h2 className='mb-4'>Age Calculator</h2>
         </div>
 
         <div className="birth-of-date">
-          {/* Current date */}
-          {/* <span>Today : </span> */}
-          {/* <input type="date" onChange={(e) => setToday(e.target.value)} /> */}
+          <div className="input-data my-4">
+
+            <span>Age at the Date of: </span>
+            <input type="date" style={{ textTransform: 'uppercase' }} value={today} onChange={(e) => setToday(e.target.value)} />
+          </div>
           <div className="input-data my-4">
             <span>Date of Birth :  </span>
-            <input type="date" style={{ textTransform: 'uppercase' }} onChange={(e) => setDob(e.target.value)} />
+            <input type="date" style={{ textTransform: 'uppercase' }} value={dob} onChange={(e) => setDob(e.target.value)} />
           </div>
           <div className="find-btn mb-3">
-            <input type="button" value={'Find Details'} className='body-btn w-auto bg-success-subtle' onClick={() => detail()} />
+            <input type="button" value={'Clear'} className='body-btn w-auto bg-success-subtle me-2' onClick={() => clearData()} />
+            <input type="button" value={'Calculate'} className='body-btn w-auto bg-success-subtle' onClick={() => detail()} />
           </div>
 
           <table border={1} className='fs-4' style={{ display: (bool == true) ? 'inline-block' : 'none' }}>
@@ -98,6 +107,10 @@ const AgeCalculator = () => {
             <tr>
               <td className='ps-3'>Months</td>
               <td className='px-4'>: {month}</td>
+            </tr>
+            <tr>
+              <td className='ps-3'>Weeks</td>
+              <td className='px-4'>: {week}</td>
             </tr>
             <tr>
               <td className='ps-3'>Days</td>
@@ -115,14 +128,9 @@ const AgeCalculator = () => {
               <td className='ps-3'>Seconds</td>
               <td className='px-4'>: {second}</td>
             </tr>
-            <tr>
-              <td className='ps-3'>Milliseconds</td>
-              <td className='px-4'>: {millisecond}</td>
-            </tr>
           </table>
 
         </div>
-
       </div>
 
     </>

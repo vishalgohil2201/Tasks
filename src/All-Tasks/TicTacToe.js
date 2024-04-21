@@ -16,8 +16,6 @@ const TicTacToe = () => {
     const getData = (n) => {
 
         if (allData[n] == '') {
-
-
             temp = [...allData];
             if (cnt == 0) {
                 temp[n] = "X";
@@ -25,7 +23,6 @@ const TicTacToe = () => {
             }
             else {
                 temp[n] = "O";
-                // setAllData(temp);
                 setCnt(0);
             }
             setAllData(temp);

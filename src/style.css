@@ -23,7 +23,13 @@ ul {
     border: 1px solid #302f2f;
 }
 
-/* Calculator Default Button Class */
+/* age Calculator */
+.input-data span{
+    display: inline-block;
+    width: 150px;
+}
+
+/* Math Calculator Default Button Class */
 .bg-lightgray {
     background-color: #B5B5B5;
     color: black;

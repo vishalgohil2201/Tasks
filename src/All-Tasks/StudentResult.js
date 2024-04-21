@@ -32,7 +32,6 @@ const StudentResult = () => {
     const max = Math.max(parseInt(subject1), parseInt(subject2), parseInt(subject3), parseInt(subject4), parseInt(subject5), parseInt(subject6))
 
     // PERCENTAGE
-
     let per = (min < 33) ? 0 : parseFloat(total / 6);
     per = per.toFixed(2)
 
